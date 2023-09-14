@@ -1,13 +1,23 @@
 import { ReactNode } from 'react';
 
+import { ThemeRegistry } from 'src/components';
+
 interface RootLayoutProps {
   children: ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export const metadata = {
+  title: 'HKPA POSTCOVID',
+};
+
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <ThemeRegistry>
+        <body>{children}</body>
+      </ThemeRegistry>
     </html>
   );
-}
+};
+
+export default RootLayout;
