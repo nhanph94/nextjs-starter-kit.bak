@@ -7,6 +7,6 @@ const defaultLocale = locales.includes(process.env.DEFAULT_LOCALE + '')
   : locales[0];
 
 export const i18nConfig = {
-  locales,
+  locales: ['en-US', 'zh-TC'],
   defaultLocale,
 };
