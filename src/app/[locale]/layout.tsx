@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material';
+import { Box, Container, Link } from '@mui/material';
 import { Metadata } from 'next';
 import { useLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
@@ -25,9 +25,21 @@ const RootLayout = ({ children, params }: RootLayoutProps) => {
     <html lang={params.locale}>
       <ThemeRegistry>
         <body>
-          <Box component="main" paddingY={4}>
+          <Box component="main">
             <Container maxWidth="xl" style={{ margin: '0 auto' }}>
-              <LangSwitcher />
+              <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="space-between"
+                paddingY={2}
+              >
+                <Box component="nav" display="flex" gap={3}>
+                  <Link href="/">Home</Link>
+                  <Link href="/example">Example page</Link>
+                </Box>
+
+                <LangSwitcher />
+              </Box>
             </Container>
 
             <Box paddingY={2}>{children}</Box>

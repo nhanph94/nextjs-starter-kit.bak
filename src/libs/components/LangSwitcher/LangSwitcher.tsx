@@ -2,14 +2,18 @@
 
 import { Box, Button } from '@mui/material';
 import { usePathname, useRouter } from 'next-intl/client';
+import { useTransition } from 'react';
 import { i18nConfig } from 'src/config';
 
 const LangSwitcher = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const [, startTransition] = useTransition();
 
   const handleChange = (locale: string) => {
-    router.push(pathname, { locale });
+    startTransition(() => {
+      router.push(pathname, { locale });
+    });
   };
 
   return (
